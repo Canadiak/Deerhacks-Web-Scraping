@@ -1,0 +1,9 @@
+04/30/2022 02:10:34 PM : __main__ : 63 : 'Bot_scraper' object has no attribute 'text_area_id' 
+04/30/2022 02:10:34 PM : __main__ : 64 : Text area fail to capture 
+Traceback (most recent call last):
+  File "C:\Users\jeray\Documents\Projects\Deerhacks Web Scraping\selenium_nba_scraper.py", line 57, in __init__
+    EC.presence_of_element_located((By.ID, self.text_area_id))
+AttributeError: 'Bot_scraper' object has no attribute 'text_area_id'
+04/30/2022 02:10:34 PM : __main__ : 78 : Winners and losers captured 
+04/30/2022 02:10:35 PM : __main__ : 87 : ['Los Angeles Lakers', 'Miami Heat', 'Los Angeles Lakers', 'Boston Celtics', 'Miami Heat', 'Denver Nuggets', 'Los Angeles Lakers', 'Boston Celtics', 'Miami Heat', 'Milwaukee Bucks', 'Toronto Raptors', 'Denver Nuggets', 'Houston Rockets', 'Los Angeles Clippers', 'Los Angeles Lakers'] 
+04/30/2022 02:10:35 PM : __main__ : 88 : ['Miami Heat', 'Boston Celtics', 'Denver Nuggets', 'Toronto Raptors', 'Milwaukee Bucks', 'Los Angeles Clippers', 'Houston Rockets', 'Philadelphia 76ers', 'Indiana Pacers', 'Orlando Magic', 'Brooklyn Nets', 'Utah Jazz', 'Oklahoma City Thunder', 'Dallas Mavericks', 'Portland Trail Blazers'] 
