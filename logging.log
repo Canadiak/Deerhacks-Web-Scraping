@@ -1,9 +1,17 @@
-04/30/2022 02:10:34 PM : __main__ : 63 : 'Bot_scraper' object has no attribute 'text_area_id' 
-04/30/2022 02:10:34 PM : __main__ : 64 : Text area fail to capture 
-Traceback (most recent call last):
-  File "C:\Users\jeray\Documents\Projects\Deerhacks Web Scraping\selenium_nba_scraper.py", line 57, in __init__
-    EC.presence_of_element_located((By.ID, self.text_area_id))
-AttributeError: 'Bot_scraper' object has no attribute 'text_area_id'
-04/30/2022 02:10:34 PM : __main__ : 78 : Winners and losers captured 
-04/30/2022 02:10:35 PM : __main__ : 87 : ['Los Angeles Lakers', 'Miami Heat', 'Los Angeles Lakers', 'Boston Celtics', 'Miami Heat', 'Denver Nuggets', 'Los Angeles Lakers', 'Boston Celtics', 'Miami Heat', 'Milwaukee Bucks', 'Toronto Raptors', 'Denver Nuggets', 'Houston Rockets', 'Los Angeles Clippers', 'Los Angeles Lakers'] 
-04/30/2022 02:10:35 PM : __main__ : 88 : ['Miami Heat', 'Boston Celtics', 'Denver Nuggets', 'Toronto Raptors', 'Milwaukee Bucks', 'Los Angeles Clippers', 'Houston Rockets', 'Philadelphia 76ers', 'Indiana Pacers', 'Orlando Magic', 'Brooklyn Nets', 'Utah Jazz', 'Oklahoma City Thunder', 'Dallas Mavericks', 'Portland Trail Blazers'] 
+04/30/2022 03:34:49 PM : __main__ : 67 : Winners and losers captured 
+04/30/2022 03:35:58 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:00 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:02 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:03 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:05 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:07 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:08 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:10 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:12 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:13 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:15 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:18 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:20 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:22 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:24 PM : __main__ : 91 : Stats captured 
+04/30/2022 03:36:24 PM : __main__ : 116 : {2020: {'Miami Heat': ['2', 'Miami Heat', '21', '5090', '792', '1723', '.460', '268', '746', '.359', '524', '977', '.536', '458', '555', '.825', '163', '705', '868', '523', '145', '81', '277', '417', '2310'], 'Boston Celtics': ['4', 'Boston Celtics', '17', '4155', '656', '1444', '.454', '211', '619', '.341', '445', '825', '.539', '336', '412', '.816', '149', '620', '769', '385', '114', '82', '237', '379', '1859'], 'Denver Nuggets': ['3', 'Denver Nuggets', '19', '4585', '738', '1568', '.471', '233', '615', '.379', '505', '953', '.530', '332', '407', '.816', '176', '596', '772', '428', '117', '76', '265', '426', '2041'], 'Toronto Raptors': ['7', 'Toronto Raptors', '11', '2690', '430', '973', '.442', '161', '443', '.363', '269', '530', '.508', '182', '234', '.778', '90', '401', '491', '273', '78', '60', '144', '247', '1203'], 'Milwaukee Bucks': ['8', 'Milwaukee Bucks', '10', '2425', '401', '871', '.460', '133', '371', '.358', '268', '500', '.536', '176', '243', '.724', '94', '373', '467', '243', '72', '42', '149', '217', '1111'], 'Los Angeles Clippers': ['5', 'Los Angeles Clippers', '13', '3145', '532', '1123', '.474', '157', '427', '.368', '375', '696', '.539', '261', '327', '.798', '123', '449', '572', '275', '97', '48', '169', '298', '1482'], 'Houston Rockets': ['6', 'Houston Rockets', '12', '2905', '449', '1029', '.436', '203', '561', '.362', '246', '468', '.526', '191', '242', '.789', '80', '386', '466', '256', '109', '42', '161', '266', '1292'], 'Philadelphia 76ers': ['16', 'Philadelphia 76ers', '4', '960', '133', '336', '.396', '32', '121', '.264', '101', '215', '.470', '104', '128', '.813', '49', '135', '184', '70', '20', '18', '48', '89', '402'], 'Indiana Pacers': ['15', 'Indiana Pacers', '4', '960', '146', '321', '.455', '48', '128', '.375', '98', '193', '.508', '63', '81', '.778', '23', '123', '146', '90', '37', '22', '61', '93', '403'], 'Orlando Magic': ['12', 'Orlando Magic', '5', '1200', '186', '443', '.420', '75', '199', '.377', '111', '244', '.455', '88', '105', '.838', '33', '182', '215', '119', '34', '16', '73', '105', '535'], 'Brooklyn Nets': ['14', 'Brooklyn Nets', '4', '960', '145', '365', '.397', '62', '184', '.337', '83', '181', '.459', '71', '98', '.724', '37', '140', '177', '103', '20', '18', '58', '85', '423'], 'Utah Jazz': ['9', 'Utah Jazz', '7', '1705', '279', '573', '.487', '110', '261', '.421', '169', '312', '.542', '126', '163', '.773', '65', '223', '288', '150', '43', '22', '84', '133', '794'], 'Oklahoma City Thunder': ['10', 'Oklahoma City Thunder', '7', '1705', '257', '598', '.430', '84', '256', '.328', '173', '342', '.506', '130', '168', '.774', '63', '286', '349', '125', '37', '28', '119', '120', '728'], 'Dallas Mavericks': ['11', 'Dallas Mavericks', '6', '1465', '253', '535', '.473', '81', '225', '.360', '172', '310', '.555', '115', '159', '.723', '46', '213', '259', '129', '39', '22', '76', '135', '702'], 'Portland Trail Blazers': ['13', 'Portland Trail Blazers', '5', '1200', '188', '441', '.426', '58', '153', '.379', '130', '288', '.451', '99', '125', '.792', '49', '165', '214', '89', '37', '18', '80', '125', '533']}} 

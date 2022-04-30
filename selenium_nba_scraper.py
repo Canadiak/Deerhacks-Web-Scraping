@@ -49,26 +49,16 @@ class Bot_scraper:
         self.driver.get(self.url)      
         self.actions = ActionChains(self.driver) 
         self.loop_counter = 0
-        self.playoffs_winners_list = []
-        self.playoffs_losers_list = []
-
-        try:
-            WebDriverWait(self.driver, 5).until(
-                EC.presence_of_element_located((By.ID, self.text_area_id))
-            )
-            self.text_area = self.driver.find_element(By.ID, self.text_area_id)
-            self.block_div = self.driver.find_element(By.ID, self.block_div_id)
-            logger.info("Text area captured")
-        except Exception as e:
-            logger.error(e)
-            logger.exception("Text area fail to capture")
+        self.year_dict = {}
 
         
     def get_winners_and_losers(self):
+        logger.info("Getting winners and losers")
         container_td_xpath = "//td[contains(text(), 'over')]"
         winner_xpath = container_td_xpath + "/*[1]"
         loser_xpath = container_td_xpath + "/*[2]"
-
+        playoffs_winners_list = []
+        playoffs_losers_list = []
         try:
             WebDriverWait(self.driver, 5).until(
                 EC.presence_of_element_located((By.XPATH, container_td_xpath))
@@ -81,13 +71,49 @@ class Bot_scraper:
             logger.exception("Winners and losers fail to capture")
 
         for index in range(len(winner_elements)):
-            self.playoffs_winners_list.append(winner_elements[index].text)
-            self.playoffs_losers_list.append(loser_elements[index].text)
+            playoffs_winners_list.append(winner_elements[index].text)
+            playoffs_losers_list.append(loser_elements[index].text)
 
-        logger.info(self.playoffs_winners_list)
-        logger.info(self.playoffs_losers_list)
+        return [playoffs_losers_list, playoffs_winners_list]
 
+
+
+
+    def get_team_stats(self, team, year="2020"):
+        logger.info("Getting team stats")
+        self.url = 'https://www.basketball-reference.com/playoffs/NBA_' + str(year) + '.html' 
+        self.driver.get(self.url)  
+        #//div[@id='all_totals_team-opponent']//td/a[contains(text(), 'Dallas')]/../../.
+        row_xpath = "//div[@id='all_totals_team-opponent']//td/a[contains(text(), '" + team + "')]/../../*" # This gives all the children in the xpath
+        try:
+            WebDriverWait(self.driver, 5).until(
+                EC.presence_of_element_located((By.XPATH, row_xpath))
+            )
+            stat_elements = self.driver.find_elements(By.XPATH, row_xpath )
+            logger.info("Stats captured")
+        except Exception as e:
+            logger.error(e)
+            logger.exception("Stats fail to capture")
+        list_of_stats = []
+
+        for index in range(25): #There are 25 stats we want. The xpath finds the opponent stats too and we don't want that so just manually setting length to 25.
+            list_of_stats.append(stat_elements[index].text)
+
+        return list_of_stats
+
+    def get_stats_for_year(self, year):
+        logger.info("Getting year stats")
+        self.url = 'https://www.basketball-reference.com/playoffs/NBA_' + str(year) + '.html' 
+        self.driver.get(self.url) 
+        winners_and_losers = self.get_winners_and_losers()
+        self.year_dict[year] = {}
+        for team in winners_and_losers[0]:
+            team_stats = self.get_team_stats(team, year)
+            self.year_dict[year][team] = team_stats
 
 if __name__ == '__main__':
     web_scraper = Bot_scraper()
-    web_scraper.get_winners_and_losers()
+    #for year in range(2017, 2018):
+    #    web_scraper.get_stats_for_year(year)
+    web_scraper.get_stats_for_year(2020)
+    logger.info(web_scraper.year_dict)
