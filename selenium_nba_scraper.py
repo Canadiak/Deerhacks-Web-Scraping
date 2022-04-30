@@ -109,7 +109,6 @@ class Bot_scraper:
                 EC.presence_of_element_located((By.XPATH, row_xpath))
             )
             stat_elements = self.driver.find_elements(By.XPATH, row_xpath2 )
-            logger.info(stat_elements)
 
             logger.info("Stats captured 2 ")
         except Exception as e:
@@ -117,7 +116,6 @@ class Bot_scraper:
             logger.exception("Stats fail to capture")
 
         for index in range(len(stat_elements)): 
-            logger.info(stat_elements[index].text)
             list_of_stats.append(stat_elements[index].text)
 
         return list_of_stats
@@ -140,20 +138,35 @@ class Bot_scraper:
             self.year_dict_losers[year].append(team_stats)
 
     def create_csv(self,  year):
+        line = "Rk,Team,G,MP,FG,FGA,FG%,3P,3PA,3P%,2P,2PA,2P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,Rk2,Team2,Age,W,L,PW,PL,MOV,SOS,SRS,ORtg,DRtg,NRtg,Pace,FTr,3PAr,TS%,eFG%,TOV%,ORB%,FT/FGA,eFG%2,TOV%2,DRB%,FT/FGA2,Arena,Attend,Attend./G"
         with open("csv_folder\\winner_" + str(year) + ".txt", 'w') as csv:
+            csv.write(line + "\n")
             for team in self.year_dict_winners[year]:
                 for stat in team:
                     csv.write(stat + ",")
                 csv.write("\n")
 
-        with open("csv_folder/loser_" + str(year) + ".txt", 'w') as csv:           
+        with open("csv_folder/loser_" + str(year) + ".txt", 'w') as csv:   
+            csv.write(line + "\n")        
             for team in self.year_dict_losers[year]:
                 for stat in team:
                     csv.write(stat + ",")
                 csv.write("\n")
 
+def prepend_column_names(filename):
+    line = "Rk,Team,G,MP,FG,FGA,FG%,3P,3PA,3P%,2P,2PA,2P%,FT,FTA,FT%,ORB,DRB,TRB,AST,STL,BLK,TOV,PF,PTS,Rk2,Team2,Age,W,L,PW,PL,MOV,SOS,SRS,ORtg,DRtg,NRtg,Pace,FTr,3PAr,TS%,eFG%,TOV%,ORB%,FT/FGA,eFG%2,TOV%2,DRB%,FT/FGA2,Arena,Attend,Attend./G"
+    with open("csv_folder/" + filename, 'r') as original: data = original.read()
+    with open("csv_folder/" + filename, 'w') as modified: modified.write(line + "\n" + data)
+
+
 if __name__ == '__main__':
     web_scraper = Bot_scraper()
-    for year in range(1990, 2020):
+    for year in range(2019, 2020):
         web_scraper.get_stats_for_year(year)
         web_scraper.create_csv(year)
+
+    #f = []
+    #path = "C://Users//jeray//Documents//Projects//Deerhacks Web Scraping//csv_folder"
+    #file_list = os.listdir(path)
+    #for file in file_list:
+    #    prepend_column_names(file)
