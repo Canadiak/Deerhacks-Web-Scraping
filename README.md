@@ -24,7 +24,7 @@ This is our submission for Deerhacks 2022. It is a python based application to p
 ## Contributers
 
 👤 **Manik Rana**
-* [Jeremy](https://github.com/Canadiak)
-* [Arhum](https://github.com/ArhumAhmad)
-* [Manik](https://github.com/Maniktherana)
-* [James](https://github.com/jameskimdev)
+* [Jeremy](https://github.com/Canadiak) Scraped the web 
+* [Arhum](https://github.com/ArhumAhmad) Build ML model and flask backend
+* [Manik](https://github.com/Maniktherana) Developed frontend
+* [James](https://github.com/jameskimdev) Developed frontend
