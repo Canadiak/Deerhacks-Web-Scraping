@@ -27,3 +27,4 @@ This is our submission for Deerhacks 2022. It is a python based application to p
 * [Jeremy](https://github.com/Canadiak)
 * [Arhum](https://github.com/ArhumAhmad)
 * [Manik](https://github.com/Maniktherana)
+* [James](https://github.com/jameskimdev)
