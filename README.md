@@ -2,6 +2,10 @@
 
 [Live Preview](https://deerhacks-landing-page.vercel.app/)
 
+### Introduction
+
+This is our submission for Deerhacks 2022. It is a python based application to predict who would win the next NBA game.
+
 ### Technologies
 
 * Flask
