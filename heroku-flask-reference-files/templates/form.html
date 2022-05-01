@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Estimate Size</title>
+    </head>
+    <body>
+        <h1>Enter Values Below</h1>
+        <form action="{{  url_for('predict')}}" method="post">
+            <div>
+                <label>Weight</label>
+                <input type="text" name="Weight" required="required">
+            </div>
+            <div>
+                <label>Age</label>
+                <input type="text" name="Age" required="required">
+            </div>
+            <div>
+                <label>Height</label>
+                <input type="text" name="Height" required="required">
+            </div>
+            <div>
+                <button type="submit"> Predict</button>
+            </div>
+        </form>
+        <br>
+        <br>
+        {{  prediction_text  }}
+    </body>
+</html>
