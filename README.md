@@ -21,6 +21,10 @@ This is our submission for Deerhacks 2022. It is a python based application to p
 * Terminal
 * Git and GitHub
 
+### Webscraping
+
+The project used Python Selenium to gather reference data from basketball-reference.com. Using XPath to identify HTML elements in tables based off their relative position to the names of the playoffs team, automation was used to gather the League stats for years 1990-2019. The script then pulled the text content from each HTML element, which would be the raw data the ML model would need, and wrote it into an easy to read CSV.
+
 ## Contributers
 
 👤 **Manik Rana**
