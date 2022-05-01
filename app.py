@@ -15,10 +15,10 @@ def home():
 #assuming there's a predict button
 @app.route('/predict', methods=['POST'])
 def predict():
-    team1 = request.form["First Team"]
-    year1 = request.form["Year 1"]
-    team2 = request.form["Second Team"]
-    year2 = request.form["Year 2"]
+    team1 = request.form["team1"]
+    year1 = request.form["year1"]
+    team2 = request.form["team2"]
+    year2 = request.form["year2"]
 
     #Jeremy will have to do some more data scraping here. To get the team stats based off
     #the name and year provided. There should probably be a check to make sure the team exists
@@ -35,8 +35,12 @@ def predict():
 
     #if there's an error here, it's probably because python is recognizing this as a series and not a dataframe
     #if that problem comes up i know how to fix it
-    output = model.predict(df)[0]
+    if model.predict(df)[0] == 0:
+        t, y = team1, year1
+    else:
+        t, y = team2, year2
 
+    output = "The {0} {1}".format(y, t)
     return render_template('form.html', prediction_text=output)
 
 if __name__ == '__main__':
